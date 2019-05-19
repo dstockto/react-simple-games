@@ -9,10 +9,8 @@
 
 .header {
     font-size: 3em;
-    border: 1px solid blue;
     justify-content: stretch;
 }
 
 .content {
-    border: 1px solid red;
 }

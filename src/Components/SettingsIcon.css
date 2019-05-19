@@ -1,3 +1,11 @@
 .settings {
     float: right;
 }
+
+.rotate {
+    transform: rotate(15deg);
+}
+
+.settings a {
+    text-decoration: none;
+}
