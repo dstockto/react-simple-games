@@ -1,0 +1,17 @@
+section.header {
+    display: grid;
+    grid-template-areas: "title nav settings";
+    grid-template-columns: 4fr 4fr 1fr;
+}
+
+.header .title {
+    grid-area: title;
+}
+
+.header nav {
+    grid-area: nav;
+}
+
+.header .settings {
+    grid-area: settings;
+}
