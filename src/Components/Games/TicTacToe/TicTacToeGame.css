@@ -1,0 +1,43 @@
+ol, ul {
+    padding-left: 30px;
+}
+
+.status {
+    margin-bottom: 10px;
+    grid-area: status;
+    justify-self: center;
+}
+
+.square {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    background: #fff;
+    border: 1px solid #999;
+    font-size: 7rem;
+    font-weight: bold;
+    place-content: normal;
+    width: fit-content;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+.game {
+    display: grid;
+    grid-template-areas:
+            "status status status"
+            "a0     a1     a2"
+            "a3     a4     a5"
+            "a6     a7     a8";
+    width: fit-content;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.game-info {
+    margin-left: 20px;
+}

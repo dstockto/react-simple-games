@@ -11,7 +11,7 @@ export default function Settings() {
   }
 
   return (
-    <section>
+    <section className={'content'}>
       <label>
         Who are you?
         <ErrorBoundary>

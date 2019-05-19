@@ -1,11 +1,17 @@
 import React from "react";
-import tictactoe from './img/tictactoe.png';
+import './TicTacToeGame.css';
+import Board from './Components/Board';
 
 export default function TicTacToeGame() {
   return (
-    <div>
-      <img src={tictactoe} alt={"ticktactoe"} height={'250px'}/>
-      Tic-Tac-Toe Coming Soon!
+    <div className="game">
+      <Board/>
+      <div className="game-info">
+        <div>{/* status */}</div>
+        <ol>{/* TODO */}</ol>
+      </div>
     </div>
   );
 };
+
+
