@@ -15,3 +15,7 @@ section.header {
 .header .settings {
     grid-area: settings;
 }
+
+.greeting {
+    font-size: .5em;
+}
