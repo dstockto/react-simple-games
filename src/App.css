@@ -1,0 +1,18 @@
+.App {
+    display: grid;
+    grid-template-areas:
+            "header"
+            "content";
+    grid-template-rows: max-content auto;
+    grid-gap: 1rem;
+}
+
+.header {
+    font-size: 3em;
+    border: 1px solid blue;
+    justify-content: stretch;
+}
+
+.content {
+    border: 1px solid red;
+}
