@@ -13,7 +13,7 @@ class TicTacToeHistory {
   }
 
   addMove(boardState) {
-    const newHistory = this.history.splice().concat(boardState);
+    const newHistory = this.history.slice().concat(boardState);
     return new TicTacToeHistory(newHistory);
   }
 
