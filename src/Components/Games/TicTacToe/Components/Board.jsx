@@ -1,50 +1,39 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Square from './Square';
-import TicTacToeModel from '../Models/TicTacToeModel';
 
-const startModel = new TicTacToeModel();
-
-export default function Board() {
-  const [boardState, setBoardState] = useState(startModel);
-
-  function clickSquare(i) {
-    const value = boardState.nextPlayer;
-    if (boardState.winner || boardState.squares[i] !== null) {
-      return;
-    }
-    setBoardState(boardState.setSquare(i, value).advanceTurn());
-  }
-
+export default function Board({squares, clickHandler, winner}) {
+  /**
+   * Creates the Square component given its position. Uses the provided
+   * clickHandler and WinnerModel to determine behavior of the Square
+   * when it is clicked as well as how it should render based on the
+   * contents and if it is part of the winning selection
+   *
+   * @param {number} i Position of square
+   * @returns {Square}
+   */
   function renderSquare(i) {
-    const position = 'a' + i;
-
-    let winner = false;
-    if (boardState.winner && boardState.winner.hasSquare(i)) {
-      winner = true;
+    let isWinner = false;
+    if (winner && winner.hasSquare(i)) {
+      isWinner = true;
     }
 
     return (
       <Square
         key={i}
-        value={boardState.squares[i]}
-        style={{gridArea: position}}
-        onClick={() => clickSquare(i)}
-        winner={winner}
+        value={squares[i]}
+        onClick={() => clickHandler(i)}
+        winner={isWinner}
+        position={'a' + i}
       />
     );
   }
 
-  let status = 'Next player: ' + (boardState.nextPlayer);
-  if (boardState.winner) {
-    status = "Winner: " + boardState.winner.winner;
-  }
-  const squareComponents = boardState.squares.map((x, i) => {
+  const squareComponents = squares.map((x, i) => {
     return renderSquare(i);
   });
 
   return (
     <>
-      <div className="status">{status}</div>
       {squareComponents}
     </>
   );

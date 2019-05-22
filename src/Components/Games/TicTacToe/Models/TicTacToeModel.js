@@ -1,46 +1,32 @@
-import calculateWinner from '../Services/calculateWinner';
-
 class TicTacToeModel {
-  constructor(squares = null, xIsNext = true, winner = null) {
+  /**
+   * Create a new TicTacToeModel object. This can be done by providing
+   * squares, or if not provided, squares will be set automatically as
+   * an array of size 9 containing null values. Expected non-null values
+   * for squares would be an array of size 9 containing either 'X', or
+   * 'O' or null in each position.
+   *
+   * @param {[string|null]} squares
+   */
+  constructor(squares = null) {
     if (squares === null) {
       squares = Array(9).fill(null);
     }
     this._squares = squares;
-    this._xIsNext = xIsNext;
-    this._winner = winner;
-    if (winner === null) {
-      this._winner = calculateWinner(squares);
-    }
-  }
-
-  get winner() {
-    return this._winner;
   }
 
   setSquare(i, value) {
     const newSquares = this.squares.slice();
     newSquares[i] = value;
-    return new TicTacToeModel(newSquares, this.xIsNext);
+    return new TicTacToeModel(newSquares);
   }
 
-  get nextPlayer() {
-    return (this.xIsNext) ? 'X' : 'O';
-  }
-
-  advanceTurn() {
-    return this.withXisNext(!this.xIsNext);
-  }
-
-  withXisNext(value) {
-    return new TicTacToeModel(this.squares, value, this.winner);
+  isMarked(i) {
+    return this.squares[i] !== null;
   }
 
   get squares() {
     return this._squares;
-  }
-
-  get xIsNext() {
-    return this._xIsNext;
   }
 }
 

@@ -9,6 +9,11 @@ ol, ul {
     justify-self: center;
 }
 
+.game-info {
+    grid-area: moves;
+    align-self: start;
+}
+
 .square {
     font: 14px "Century Gothic", Futura, sans-serif;
     background: #fff;
@@ -32,10 +37,10 @@ ol, ul {
 .game {
     display: grid;
     grid-template-areas:
-            "status status status"
-            "a0     a1     a2"
-            "a3     a4     a5"
-            "a6     a7     a8";
+            "status status status ."
+            "a0     a1     a2     moves"
+            "a3     a4     a5     moves"
+            "a6     a7     a8     moves";
     width: fit-content;
     align-items: center;
     grid-gap: 10px;
@@ -49,4 +54,8 @@ button.winner {
     background-color: darkred;
     color: #eee;
     text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+button.current {
+    background-color: coral;
 }

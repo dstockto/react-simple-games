@@ -5,10 +5,11 @@ import "./SettingsIcon.css";
 
 export default function SettingsIcon(props) {
   const {route} = props;
-  // This makes settings be a toggle - if you're on settings, it links back to
-  // the root. If you're anywhere else, it goes to /settings
 
   const isSettings = route.location.pathname === '/settings';
+
+  // This makes settings be a toggle - if you're on settings, it links back to
+  // the root. If you're anywhere else, it goes to /settings
   const link = isSettings ? '/' : '/settings';
 
   let classes = ['settings'];
