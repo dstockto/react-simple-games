@@ -11,16 +11,19 @@ export default function TicTacToeGame() {
   const [history, setHistory] = useState(emptyHistory);
   const [xIsNext, setXIsNext] = useState(true);
   const [stepNumber, setStepNumber] = useState(0);
-  const boardModel = history.latest;
+  const boardModel = history.getBoard(stepNumber);
 
   function clickHandler(i) {
-    const marker = (xIsNext) ? 'X' : 'O';
-    if (boardModel.isMarked(i) || calculateWinner(boardModel.squares)) {
+    const historySlice = history.getSlice(stepNumber);
+    const currentBoard = historySlice.latest;
+    if (calculateWinner(currentBoard.squares) || currentBoard.isMarked(i)) {
       return;
     }
-    setHistory(history.addMove(boardModel.setSquare(i, marker)));
+
+    const newBoard = currentBoard.setSquare(i, xIsNext ? 'X' : 'O');
+    setHistory(historySlice.addMove(newBoard));
     setXIsNext(!xIsNext);
-    setStepNumber(history.lastBoard);
+    setStepNumber(historySlice.lastBoard + 1);
   }
 
   function jumpTo(step) {
@@ -37,16 +40,20 @@ export default function TicTacToeGame() {
 
   const moves = history.history.map((step, move) => {
     const desc = move ? 'Go to move ' + move : 'Go to game start';
+    let className = '';
+    if (move === stepNumber) {
+      className = 'current';
+    }
     return (
-      <li key={'history'+move}>
-        <button onClick={() => jumpTo(move)}>{desc}</button>
+      <li key={'history' + move}>
+        <button onClick={() => jumpTo(move)} className={className}>{desc}</button>
       </li>
     );
   });
 
   return (
     <div className="game">
-      <Board squares={boardModel.squares} clickHandler={clickHandler} winner={winner} />
+      <Board squares={boardModel.squares} clickHandler={clickHandler} winner={winner}/>
       <div className="status">{status}</div>
       <div className="game-info">
         <ol>{moves}</ol>

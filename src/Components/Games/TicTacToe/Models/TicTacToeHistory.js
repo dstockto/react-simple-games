@@ -13,7 +13,7 @@ class TicTacToeHistory {
   }
 
   addMove(boardState) {
-    const newHistory = this.history.slice().concat(boardState);
+    const newHistory = this.history.concat(boardState);
     return new TicTacToeHistory(newHistory);
   }
 
@@ -30,6 +30,10 @@ class TicTacToeHistory {
       throw new Error("Invalid board number");
     }
     return this.history[boardNum];
+  }
+
+  getSlice(step) {
+    return new TicTacToeHistory(this.history.slice(0, step + 1));
   }
 }
 
