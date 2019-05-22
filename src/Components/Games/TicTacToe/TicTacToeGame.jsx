@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './TicTacToeGame.css';
 import Board from './Components/Board';
 import TicTacToeHistory from './Models/TicTacToeHistory';
+import calculateWinner from './Services/calculateWinner';
 
 const emptyHistory = new TicTacToeHistory();
 
@@ -13,18 +14,23 @@ export default function TicTacToeGame() {
 
   function clickHandler(i) {
     const marker = (xIsNext) ? 'X' : 'O';
-    if (boardModel.isMarked(i)) {
+    if (boardModel.isMarked(i) || calculateWinner(boardModel.squares)) {
       return;
     }
     setHistory(history.addMove(boardModel.setSquare(i, marker)));
     setXIsNext(!xIsNext);
   }
 
-  const status = 'Next Player: ' + (xIsNext ? 'X' : 'O');
+  const winner = calculateWinner(boardModel.squares);
+
+  let status = 'Next Player: ' + (xIsNext ? 'X' : 'O');
+  if (winner) {
+    status = 'Winner: ' + winner.winner;
+  }
 
   return (
     <div className="game">
-      <Board squares={boardModel.squares} clickHandler={clickHandler} />
+      <Board squares={boardModel.squares} clickHandler={clickHandler} winner={winner} />
       <div className="status">{status}</div>
       <div className="game-info">
         <ol>{/* TODO */}</ol>
