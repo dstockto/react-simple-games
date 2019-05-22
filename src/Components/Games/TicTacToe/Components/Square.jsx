@@ -6,7 +6,6 @@ export default function Square({value, onClick, winner, position}) {
     classNames.push('winner');
   }
 
-
   return (
     <button
       style={{gridArea: position}}
