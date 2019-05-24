@@ -13,6 +13,8 @@
 }
 
 .content {
+    justify-self: center;
+    grid-area: content;
 }
 
 .mathGame {

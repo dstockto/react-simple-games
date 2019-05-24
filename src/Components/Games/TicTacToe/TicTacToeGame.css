@@ -1,0 +1,61 @@
+ol, ul {
+    padding-left: 30px;
+}
+
+.status {
+    margin-bottom: 10px;
+    font-size: 4rem;
+    grid-area: status;
+    justify-self: center;
+}
+
+.game-info {
+    grid-area: moves;
+    align-self: start;
+}
+
+.square {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    background: #fff;
+    border: 1px solid #999;
+    font-size: 7rem;
+    font-weight: bold;
+    place-content: normal;
+    width: 10rem;
+    height: 10rem;
+    text-shadow: 2px 2px 6px #111;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+.game {
+    display: grid;
+    grid-template-areas:
+            "status status status ."
+            "a0     a1     a2     moves"
+            "a3     a4     a5     moves"
+            "a6     a7     a8     moves";
+    width: fit-content;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.game-info {
+    margin-left: 20px;
+}
+
+button.winner {
+    background-color: darkred;
+    color: #eee;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+button.current {
+    background-color: coral;
+}

@@ -13,16 +13,18 @@ function App() {
 
   return (
     <UserProvider>
-      <div className="App">
-        <Router>
+      <Router>
+        <div className="App">
           <Route path={'/'} component={Header}/>
-          <Route path={'/eli-math'} component={EliMathGame}/>
-          <Route path={'/tic-tac-toe'} component={TicTacToeGame}/>
-          <Route path={'/nonogram'} component={NonogramGame}/>
-          <Route path={'/sudoku'} component={SudokuGame}/>
-          <Route path={'/settings'} component={Settings}/>
-        </Router>
-      </div>
+          <section className={'content'}>
+            <Route path={'/eli-math'} component={EliMathGame}/>
+            <Route path={'/tic-tac-toe'} component={TicTacToeGame}/>
+            <Route path={'/nonogram'} component={NonogramGame}/>
+            <Route path={'/sudoku'} component={SudokuGame}/>
+            <Route path={'/settings'} component={Settings}/>
+          </section>
+        </div>
+      </Router>
     </UserProvider>
   );
 }
