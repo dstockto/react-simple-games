@@ -22,16 +22,14 @@ export default function calculateWinner(squares) {
   ];
 
   return lines.reduce((winner, [a, b, c]) => {
-    // Since we're using a reduce, we don't have a way to return early,
-    // as in when we first find a winning group. This bit allows us to
-    // bypass all additional checks if we've found a winner and just
-    // return the first group that won.
-    if (winner) {
-      return winner;
-    }
     if (squares[a] !== null && squares[a] === squares[b] && squares[b] === squares[c]) {
-      return new WinnerModel(a, b, c, squares[a]);
+      if (winner === null) {
+        // First winner
+        return new WinnerModel(squares[a], [a, b, c]);
+      }
+      const oldPositions = winner.positions;
+      return new WinnerModel(winner.winner, oldPositions.concat(a, b, c));
     }
-    return null;
+    return winner;
   }, null);
 };
