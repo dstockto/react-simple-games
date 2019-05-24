@@ -1,29 +1,5 @@
 export default class WinnerModel {
   /**
-   * The first winning position
-   * @returns {number}
-   */
-  get a() {
-    return this._a;
-  }
-
-  /**
-   * The second winning position
-   * @returns {number}
-   */
-  get b() {
-    return this._b;
-  }
-
-  /**
-   * The third winning position
-   * @returns {number}
-   */
-  get c() {
-    return this._c;
-  }
-
-  /**
    * The winning player of the game
    * @returns {string}
    */
@@ -38,22 +14,23 @@ export default class WinnerModel {
    * @returns {boolean}
    */
   hasSquare(i) {
-    return ([this.a, this.b, this.c].includes(i));
+    return (this._positions.has(i));
+  }
+
+  get positions() {
+    return Array.from(this._positions.entries(), x => x[0]);
   }
 
   /**
    * Builds a model representing a winning combination for Tic-Tac-Toe.
-   * Parameters a, b, and c represent the square position numbers and the
-   * player (X or O) will be represented in winner.
-   * @param {number} a
-   * @param {number} b
-   * @param {number} c
+   * Winner is the symbol of the winner (X or O) and positions are all
+   * the board square numbers that cause the win
+   *
    * @param {string} winner
+   * @param {[number]} positions
    */
-  constructor(a, b, c, winner) {
-    this._a = a;
-    this._b = b;
-    this._c = c;
+  constructor(winner, positions) {
     this._winner = winner;
+    this._positions = new Set(positions);
   }
 };
