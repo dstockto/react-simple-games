@@ -45,6 +45,10 @@
     grid-area: record;
   }
   
+  .submitButton {
+    font-size: 10px;
+  }
+
   #else {
     grid-area: else;
   }

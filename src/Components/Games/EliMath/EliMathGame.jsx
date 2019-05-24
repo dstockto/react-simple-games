@@ -2,43 +2,64 @@ import React, { useState } from "react";
 
 
 
-// function myAlert(idName){
-//   const result = document.getElementById("idName").innerHTML;
-//   alert(result);
+// function randomNum(){
+//   Math.floor((Math.random()*10)+1);
 // }
 
-class numberGenerator {
-  const (firstNum, operator, secNum, userAnswer){
-    this.firstNum = firstNum;
-    this.operator = operator;
-    this.secNum = secNum;
-    this.userAnswer = userAnswer;
-  }
+// class numberGenerator {
+//   const (firstNum, operator, secNum, userAnswer){
+//     this.firstNum = firstNum;
+//     this.operator = operator;
+//     this.secNum = secNum;
+//     this.userAnswer = userAnswer;
+//   }
 
-  add() {
+  
+  
+//   add() {
+//     const firstNum = randomNum();
+//     const secNum = randomNum();
+//     console.log({firstNum, secNum})
+//     const result = this.firstNum + this.secondNum;
+//     return result;
+//   }
 
-    return this.firstNum + this.secondNum;
-  }
+//   subtract() {
+//     if (this.firstNum > this.secondNum){
+//       return this.firstNum - this.secondNum;
+//     } else
+//     return this.secondNum - this.firstNum;
+//   }
 
-}
-
-// const firstNum = document.getElementById("firstNum").innerHTML;
-// const secNum = document.getElementById("secNum").innerHTML;
-
-// // let karenAdd = new numberGenerator(firstNum,secNum);
-// // karenAdd.add();
-
-// function addMath () {
-//   const firstNum = parseInt(document.getElementById("firstNum").innerHTML);
-//   const secNum = parseInt(document.getElementById("secNum").innerHTML);
-//   var result = firstNum + secNum;
-//   return result;
 // }
+
+
 
 export default function EliMathGame() {
-  const myProblem = new numberGenerator(1, "+", 2, 4);
+  const [userAnswer, setUserAnswer] = useState(0);
+  const newArray = [];
   
-  //put state here
+
+  const initialNum = Math.floor((Math.random()*10)+1);
+  const followNum = Math.floor((Math.random()*10)+1);
+  //var myProblem = new numberGenerator(initialNum, "+", followNum, 4);
+  
+  function setMyNumber() {
+    var resultsUser = document.getElementById("inputAnswer").value;
+    var trueResult = initialNum + followNum;
+    if (resultsUser == trueResult) {
+      alert("Yay, great job!");
+      var answerStatment = `Yes ${initialNum}+ ${followNum} = ${resultsUser}`
+      var rightAnswer = setUserAnswer(answerStatment);
+      newArray.push(rightAnswer);
+      alert(newArray[0]);
+      return answerStatment;
+    } else {
+      alert("nope not yet, try again please");
+    }
+  }
+
+  
 
   return (
     <div 
@@ -53,23 +74,28 @@ export default function EliMathGame() {
         id="equationsEli"
         >
           Equations
-          <h1> {myProblem.firstNum} {myProblem.operator} {myProblem.secNum} =</h1>
+          <h1> {initialNum} + {followNum} =</h1>
       
           <input 
             type={"text"}
-            pattern="[0-9]*" 
             placeholder = "Answer"
-            value={myProblem.userAnswer}
-            onKeyDown={addMath}
+            id="inputAnswer"
+            
             
           />
-          
-          
+          <input 
+            type={"button"}
+            className="submitButton"
+            value={userAnswer}
+            onClick={setMyNumber}
+          />
         </div>
         <div
-        id="scoringEli"
+          id="scoringEli"
+          value={userAnswer}
         >
           Scoring
+
         </div>
         <div
         id="else"
