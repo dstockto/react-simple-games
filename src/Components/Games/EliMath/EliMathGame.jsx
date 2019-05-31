@@ -49,13 +49,16 @@ export default function EliMathGame() {
     var trueResult = initialNum + followNum;
     if (resultsUser == trueResult) {
       alert("Yay, great job!");
-      var answerStatment = `Yes ${initialNum}+ ${followNum} = ${resultsUser}`
-      var rightAnswer = setUserAnswer(answerStatment);
-      newArray.push(rightAnswer);
-      alert(newArray[0]);
+      const answerStatment = `Yes ${initialNum}+ ${followNum} = ${resultsUser}`
+      //var rightAnswer = setUserAnswer(answerStatment);
+      setUserAnswer(answerStatment);
+      // newArray.push(rightAnswer);
+      // alert(newArray[0]);
+      alert(answerStatment);
+      
       return answerStatment;
     } else {
-      alert("nope not yet, try again please");
+      alert(`nope not yet, try again please `);
     }
   }
 
@@ -66,42 +69,48 @@ export default function EliMathGame() {
       className="mathGame" 
       id="eliTitle"
     >
+      <div 
+        id="eliMainTitle"
+      >
       Eli's Math Game
-    <div
-      id="eliMathContent"
-    >
-        <div
-        id="equationsEli"
-        >
-          Equations
-          <h1> {initialNum} + {followNum} =</h1>
-      
-          <input 
-            type={"text"}
-            placeholder = "Answer"
-            id="inputAnswer"
-            
-            
-          />
-          <input 
-            type={"button"}
-            className="submitButton"
+      </div>
+      <div
+        id="eliMathContent"
+      >
+          <div
+          id="equationsEli"
+          >
+            Equations
+            <h1> {initialNum} + {followNum} =</h1>
+        
+            <input 
+              type={"text"}
+              placeholder = "Answer"
+              id="inputAnswer"
+                        
+            />
+            <input 
+              type={"button"}
+              className="submitButton"
+              value={"submit"}
+              onClick={setMyNumber}
+            />
+          </div>
+          <div
+            id="scoringEli"
             value={userAnswer}
-            onClick={setMyNumber}
-          />
-        </div>
-        <div
-          id="scoringEli"
-          value={userAnswer}
-        >
-          Scoring
-
-        </div>
-        <div
-        id="else"
-        >
-          Something else
-        </div>
+          >
+            Scoring
+            <input
+              type={"button"}
+              value={userAnswer}
+            />
+          </div>
+          <div
+          id="else"
+          >
+            Something else
+          </div>
       </div> 
    </div>
     
