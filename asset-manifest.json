@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.59dfd960.chunk.css",
-    "main.js": "/static/js/main.f7a32380.chunk.js",
-    "main.js.map": "/static/js/main.f7a32380.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.5c97c44a.chunk.js": "/static/js/2.5c97c44a.chunk.js",
-    "static/js/2.5c97c44a.chunk.js.map": "/static/js/2.5c97c44a.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.ac9b9f6a8a015f8008bb88efae0f0fb3.js": "/precache-manifest.ac9b9f6a8a015f8008bb88efae0f0fb3.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.59dfd960.chunk.css.map": "/static/css/main.59dfd960.chunk.css.map",
-    "static/media/nonogram.png": "/static/media/nonogram.0d01e696.png",
-    "static/media/sudoku.png": "/static/media/sudoku.aba201d7.png"
+    "main.css": "/react-simple-games/static/css/main.59dfd960.chunk.css",
+    "main.js": "/react-simple-games/static/js/main.a3dd32c3.chunk.js",
+    "main.js.map": "/react-simple-games/static/js/main.a3dd32c3.chunk.js.map",
+    "runtime~main.js": "/react-simple-games/static/js/runtime~main.ad71673e.js",
+    "runtime~main.js.map": "/react-simple-games/static/js/runtime~main.ad71673e.js.map",
+    "static/js/2.5c97c44a.chunk.js": "/react-simple-games/static/js/2.5c97c44a.chunk.js",
+    "static/js/2.5c97c44a.chunk.js.map": "/react-simple-games/static/js/2.5c97c44a.chunk.js.map",
+    "index.html": "/react-simple-games/index.html",
+    "precache-manifest.54ea153be8cc00b27a5cb0d81ebc5e60.js": "/react-simple-games/precache-manifest.54ea153be8cc00b27a5cb0d81ebc5e60.js",
+    "service-worker.js": "/react-simple-games/service-worker.js",
+    "static/css/main.59dfd960.chunk.css.map": "/react-simple-games/static/css/main.59dfd960.chunk.css.map",
+    "static/media/nonogram.png": "/react-simple-games/static/media/nonogram.0d01e696.png",
+    "static/media/sudoku.png": "/react-simple-games/static/media/sudoku.aba201d7.png"
   }
 }
