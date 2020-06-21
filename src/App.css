@@ -16,3 +16,50 @@
     justify-self: center;
     grid-area: content;
 }
+
+.mathGame {
+    font-size: 4em;
+    grid-area: content;
+   
+  }
+
+#eliMathContent {
+    grid-area: content;
+    display: grid;
+    grid-template-areas:
+    "title title title"
+    "game1 record else";
+    grid-template-columns: 3fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
+    grid-column-gap: 10px;
+    grid-area: title;
+  }
+
+#eliMainTitle {
+  grid-area: title;
+}
+  
+  #equationsEli {
+    grid-area: game1;
+    font-size: 12px;
+    display: grid;
+    grid-template-areas: 
+        "1 operator 2 ="
+        "answer answer answer answer";
+    grid-template-rows: auto; 
+  }
+  
+  #scoringEli {
+    grid-area: record;
+  }
+  
+  .submitButton {
+    font-size: 10px;
+  }
+
+  #else {
+    grid-area: else;
+  }
+
+  
+
